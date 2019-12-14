@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="mx-auto" style="width: 200px;">
-            <button type="button" class="btn btn-primary"><i class="fas fa-plus"><i class="material-icons">face</i></i>
+            <button type="button" class="btn btn-primary" @click="sayHi"><i class="fas fa-plus"><i class="material-icons">face</i></i>
         </button>
         </div>
     </div>
@@ -46,9 +46,20 @@
         let vueData = {
             yourName: '填入您的名稱',
         }
+        let vueMethods = {
+            sayHi: () => {
+                alert('Hi,歡迎使用Vue.js');
+            }
+        }
         new Vue({
             el: '#app',
             data: vueData,
+            // methods: vueMethods,
+            methods: {
+                sayHi() {
+                    alert('Hi');
+                }
+            }
         })
     </script>
 </body>
