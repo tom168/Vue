@@ -9,22 +9,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Fontawesom 的 CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
+    <!-- google的icon的cdn -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
     <!-- Vue實例的掛載點 -->
     <div id='app'>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group mb-3 mt-3">
+            <input type="text" class="form-control" v-bind:placeholder="yourName" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2">@example.com</span>
             </div>
         </div>
-        <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i>
+        <div class="mx-auto" style="width: 200px;">
+            <button type="button" class="btn btn-primary"><i class="fas fa-plus"><i class="material-icons">face</i></i>
         </button>
+        </div>
     </div>
+
 
 
 
@@ -39,8 +43,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- Vue實例的程式碼 -->
     <script>
+        let vueData = {
+            yourName: '填入您的名稱',
+        }
         new Vue({
-            el: '#app'
+            el: '#app',
+            data: vueData,
         })
     </script>
 </body>
