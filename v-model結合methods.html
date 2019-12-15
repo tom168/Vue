@@ -17,22 +17,10 @@
 <body>
     <!-- Vue實例的掛載點 -->
     <div id='app'>
-        <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control" v-bind:placeholder="yourName" v-model="vueTest" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2">@example.com</span>
-            </div>
-        </div>
-        <div class="mx-auto" style="width: 200px;">
-            <button type="button" class="btn btn-primary" @click='sayHi()'><i class="fas fa-plus"><i class="material-icons">face</i></i>
-        </button>
-        </div>
+        <input type="text" v-model="vueModel">
+        <input type="button" value="test" @click="say">
+        <p>測試:{{vueModel}}</p>
     </div>
-
-
-
-
-
 
     <!-- Vue 的 CDN -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -44,27 +32,17 @@
     <!-- Vue實例的程式碼 -->
     <script>
         let vueData = {
-            yourName: '填入您的名稱',
-            vueTest: "",
+            vueModel: "",
         }
         let vueMethods = {
-                sayHi: () => {
-                    alert(`Hi,${this.vueTest} 歡迎使用Vue.js`)
-                }
+            say: () => {
+                alert(`${vueData.vueModel}`);
             }
-            // a('c');
-            // function a(b) {
-            //     alert(b);
-            // }
+        }
         new Vue({
-            el: '#app',
+            el: "#app",
             data: vueData,
             methods: vueMethods,
-            // methods: {
-            //     sayHi(event) {
-            //         alert('Hi,${ event.target } 歡迎使用Vue.js')
-            //     }
-            // }
         })
     </script>
 </body>

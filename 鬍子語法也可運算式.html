@@ -17,21 +17,8 @@
 <body>
     <!-- Vue實例的掛載點 -->
     <div id='app'>
-        <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control" v-bind:placeholder="yourName" v-model="vueTest" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2">@example.com</span>
-            </div>
-        </div>
-        <div class="mx-auto" style="width: 200px;">
-            <button type="button" class="btn btn-primary" @click='sayHi()'><i class="fas fa-plus"><i class="material-icons">face</i></i>
-        </button>
-        </div>
+        {{sayHi()}}
     </div>
-
-
-
-
 
 
     <!-- Vue 的 CDN -->
@@ -43,28 +30,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- Vue實例的程式碼 -->
     <script>
-        let vueData = {
-            yourName: '填入您的名稱',
-            vueTest: "",
-        }
-        let vueMethods = {
-                sayHi: () => {
-                    alert(`Hi,${this.vueTest} 歡迎使用Vue.js`)
-                }
-            }
-            // a('c');
-            // function a(b) {
-            //     alert(b);
-            // }
         new Vue({
             el: '#app',
-            data: vueData,
-            methods: vueMethods,
-            // methods: {
-            //     sayHi(event) {
-            //         alert('Hi,${ event.target } 歡迎使用Vue.js')
-            //     }
-            // }
+            methods: {
+                sayHi() {
+                    return '歡迎來到Vue前端設計營';
+                }
+            }
         })
     </script>
 </body>
