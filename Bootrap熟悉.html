@@ -18,7 +18,7 @@
     <!-- Vue實例的掛載點 -->
     <div id='app'>
         <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control" v-bind:placeholder="yourName" v-model="vueTest" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" v-bind:placeholder="yourName" v-model="vueModel" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2">@example.com</span>
             </div>
@@ -45,11 +45,11 @@
     <script>
         let vueData = {
             yourName: '填入您的名稱',
-            vueTest: "",
+            vueModel: "",
         }
         let vueMethods = {
                 sayHi: () => {
-                    alert(`Hi,${this.vueTest} 歡迎使用Vue.js`)
+                    alert(`Hi,${vueData.vueModel} 歡迎使用Vue.js`)
                 }
             }
             // a('c');

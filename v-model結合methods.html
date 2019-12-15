@@ -19,7 +19,7 @@
     <div id='app'>
         <input type="text" v-model="vueModel">
         <input type="button" value="test" @click="say">
-        <p>測試:{{vueModel}}</p>
+
     </div>
 
     <!-- Vue 的 CDN -->
@@ -36,7 +36,7 @@
         }
         let vueMethods = {
             say: () => {
-                alert(`${vueData.vueModel}`);
+                alert(`Hi，${vueData.vueModel}，歡迎使用Vue.js`);
             }
         }
         new Vue({
