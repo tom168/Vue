@@ -17,13 +17,10 @@
 <body>
     <!-- Vue實例的掛載點 -->
     <div id='app'>
-        <button @click="destroy">destroy</button>
-        <p v-show="isShow">我是小明</p>
-        <!-- <p v-show="isShowtest=='true1'">測試</p> -->
-        <p v-html="message"></p>
-
+        <ul>
+            <li v-for="user in users">{{user.name}}</li>
+        </ul>
     </div>
-
     <!-- Vue 的 CDN -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
@@ -31,54 +28,22 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Axios 的 CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Vue實例的程式碼 -->
     <script>
-        let vueMethods = {
-            destroy() {
-                this.$destroy();
-            }
-        }
         new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                isShow: false,
-                message: `<a href="https://www.youtube.com/watch?v=QkrVdB1iQNE">請參閱</a>`,
-                // isShowtest: 'true1'
-            },
-            //1.初始化階段
-            beforeCreate() {
-                console.log('beforeCreate()');
-            },
-            created() {
-                console.log('Created()');
-            },
-            beforeMount() {
-                console.log('beforeMount()');
+                users: []
             },
             mounted() {
-                console.log('mounted()');
-                intervalID = setInterval(() => {
-                    console.log('----')
-                    this.isShow = !this.isShow;
-                }, 1000);
-            },
-            //2.更新階段
-            beforeUpdate() {
-                console.log('beforeUpdate()');
-            },
-            updated() {
-                console.log('updated()');
-            },
-            //3.死亡階段
-            beforeDestroy() {
-                console.log('beforeDestroy');
-                clearInterval(intervalID)
-            },
-            destroyed() {
-                console.log('destroyed')
-            },
-            methods: vueMethods,
-
+                var vm = this
+                axios.get('https://jsonplaceholder.typicode.com/users')
+                    .then((response) => {
+                        vm.users = response.data
+                    })
+            }
         })
     </script>
 </body>
